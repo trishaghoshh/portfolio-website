@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trisha Ghosh - Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Custom Fonts (you'll need to add these font files to your project) -->
+    <style>
+        @font-face {
+            font-family: 'The Seasons';
+            src: url('fonts/the-seasons.woff2') format('woff2'),
+                 url('fonts/the-seasons.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'Foda Display';
+            src: url('fonts/foda-display.woff2') format('woff2'),
+                 url('fonts/foda-display.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'Moontime';
+            src: url('fonts/moontime.woff2') format('woff2'),
+                 url('fonts/moontime.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: #f8f8f8;
+            overflow: hidden;
+            height: 100vh;
+        }
+        
+        /* Animation Keyframes */
+        @keyframes stomp {
+            0% {
+                transform: scale(0) rotate(-10deg);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1) rotate(5deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes rollSlideIn {
+            0% {
+                transform: translateX(-100%) rotate(-360deg);
+                opacity: 0;
+            }
+            70% {
+                transform: translateX(10%) rotate(10deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateX(0) rotate(0deg);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes cloudFade {
+            0% {
+                transform: scale(0.8) translateY(20px);
+                opacity: 0;
+                filter: blur(5px);
+            }
+            50% {
+                transform: scale(1.05) translateY(-5px);
+                opacity: 0.7;
+                filter: blur(2px);
+            }
+            100% {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+                filter: blur(0px);
+            }
+        }
+        
+        @keyframes navbarFade {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes textFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Navbar Styles */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: navbarFade 1s ease-out 3.5s forwards;
+        }
+        
+        .logo {
+            font-family: 'The Seasons', serif;
+            font-size: 28px;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            font-family: 'The Seasons', serif;
+            font-size: 16px;
+            color: #333;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #648767;
+        }
+        
+        .contact-btn {
+            background-color: #BA3F1D;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-family: 'The Seasons', serif;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        
+        .contact-btn:hover {
+            background-color: #9a3416;
+            transform: translateY(-2px);
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 50px;
+            height: calc(100vh - 100px);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .left-section {
+            flex: 1;
+            max-width: 600px;
+        }
+        
+        .greeting {
+            font-family: 'Raleway', sans-serif;
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 300;
+            opacity: 0;
+            animation: textFadeIn 0.8s ease-out 1.8s forwards;
+        }
+        
+        .name {
+            font-family: 'Foda Display', serif;
+            font-size: 120px;
+            color: #648767;
+            line-height: 0.9;
+            margin-bottom: 20px;
+            font-weight: normal;
+            opacity: 0;
+            animation: rollSlideIn 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s forwards;
+        }
+        
+        .tagline {
+            font-family: 'Raleway', sans-serif;
+            font-size: 18px;
+            color: #666;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 400;
+            opacity: 0;
+            animation: textFadeIn 0.8s ease-out 2.2s forwards;
+        }
+        
+        .center-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .profile-image {
+            width: 400px;
+            height: 500px;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDQwMCA1MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNTAwIiBmaWxsPSIjZjBmMGYwIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMjUwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UHJvZmlsZSBJbWFnZTwvdGV4dD4KPC9zdmc+') center/cover;
+            border-radius: 10px;
+            filter: grayscale(100%);
+            opacity: 0;
+            animation: stomp 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.2s forwards;
+        }
+        
+        .right-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+            padding-left: 50px;
+        }
+        
+        .quote {
+            font-family: 'Moontime', cursive;
+            font-size: 48px;
+            color: #333;
+            text-align: right;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            max-width: 400px;
+            opacity: 0;
+            animation: cloudFade 1.2s ease-out 2.5s forwards;
+        }
+        
+        .attribution {
+            font-family: 'Raleway', sans-serif;
+            font-size: 14px;
+            color: #666;
+            text-align: right;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 400;
+            opacity: 0;
+            animation: cloudFade 1s ease-out 3s forwards;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .main-content {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+                overflow-y: auto;
+                height: auto;
+            }
+            
+            body {
+                overflow: auto;
+            }
+            
+            .left-section, .right-section {
+                max-width: 100%;
+                padding: 0;
+            }
+            
+            .name {
+                font-size: 80px;
+                animation: rollSlideIn 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s forwards;
+            }
+            
+            .quote {
+                font-size: 36px;
+                text-align: center;
+                margin: 30px 0;
+                animation: cloudFade 1.2s ease-out 2.5s forwards;
+            }
+            
+            .attribution {
+                text-align: center;
+                animation: cloudFade 1s ease-out 3s forwards;
+            }
+            
+            .profile-image {
+                width: 300px;
+                height: 400px;
+                margin: 30px 0;
+                animation: stomp 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.2s forwards;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 20px;
+                animation: navbarFade 1s ease-out 3.5s forwards;
+            }
+            
+            .nav-links {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+            
+            .name {
+                font-size: 60px;
+                animation: rollSlideIn 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s forwards;
+            }
+            
+            .quote {
+                font-size: 28px;
+                animation: cloudFade 1.2s ease-out 2.5s forwards;
+            }
+            
+            .profile-image {
+                width: 250px;
+                height: 350px;
+                animation: stomp 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.2s forwards;
+            }
+        }
+        
+        /* Preload animation state */
+        .preload * {
+            animation-duration: 0s !important;
+            animation-delay: 0s !important;
+            transition-duration: 0s !important;
+        }
+    </style>
+</head>
+<body class="preload">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="logo">Trisha Ghosh</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#notes">Notes</a></li>
+            <li><a href="#resume">Resume</a></li>
+        </ul>
+        <a href="#contact" class="contact-btn">Contact</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="left-section">
+            <h2 class="greeting">HI! I'M</h2>
+            <h1 class="name">trisha ghosh</h1>
+            <p class="tagline">POWER. LOGIC. ELEGANCE. ENGINEERED</p>
+        </section>
+        
+        <section class="center-section">
+            <div class="profile-image"></div>
+        </section>
+        
+        <section class="right-section">
+            <blockquote class="quote">"the best engineering disappears into the experience"</blockquote>
+            <p class="attribution">DESIGN PHILOSOPHY GUIDED BY<br>APPLE AND DIETER RAMS</p>
+        </section>
+    </main>
+
+    <script>
+        // Remove preload class after page loads to enable animations
+        window.addEventListener('load', function() {
+            document.body.classList.remove('preload');
+        });
+    </script>
+</body>
+</html>
