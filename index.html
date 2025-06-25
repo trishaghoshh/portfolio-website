@@ -26,11 +26,6 @@
            url('fonts/moontime.woff') format('woff');
     }
 
-    :root {
-      --page-padding: 50px;
-    }
-
-
     html, body {
       height: 100%;
       margin: 0;
@@ -94,7 +89,7 @@
       top: 0;
       background-color: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
-      padding: 20px var(--page-padding);
+      padding: 20px 50px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -154,16 +149,16 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 var(--page-padding);
-      height: calc(100vh - 80px); /* Adjust if your navbar height is different */
+      padding: 0 50px;
+      height: calc(100vh - 80px);
       max-width: 1400px;
       margin: 0 auto;
+      gap: 40px;
       overflow: hidden;
     }
 
     .left-section {
       flex: 1;
-      padding-right: 30px; /* optional: gives some breathing room from center image */
       max-width: 600px;
     }
 
@@ -201,9 +196,9 @@
       flex: 1;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-end;
       height: 100%;
-      transform: translateX(60px); /* subtle right shift */
+      overflow: hidden;
     }
 
     .profile-image {
@@ -328,16 +323,17 @@
 </head>
 <body class="preload">
   <!-- Navbar -->
-<nav class="navbar">
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#notes">Notes</a></li>
-    <li><a href="#resume">Resume</a></li>
-  </ul>
-  <a href="#contact" class="contact-btn">Contact</a>
-</nav>
+  <nav class="navbar">
+    <a href="#" class="logo">Trisha Ghosh</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#notes">Notes</a></li>
+      <li><a href="#resume">Resume</a></li>
+    </ul>
+    <a href="#contact" class="contact-btn">Contact</a>
+  </nav>
 
   <!-- Main Content -->
   <main class="main-content">
