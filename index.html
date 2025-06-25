@@ -26,6 +26,11 @@
            url('fonts/moontime.woff') format('woff');
     }
 
+    :root {
+      --page-padding: 50px;
+    }
+
+
     html, body {
       height: 100%;
       margin: 0;
@@ -89,7 +94,7 @@
       top: 0;
       background-color: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
-      padding: 20px 50px;
+      padding: 20px var(--page-padding);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -149,7 +154,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 50px;
+      padding: 0 var(--page-padding);
       height: calc(100vh - 80px);
       max-width: 1400px;
       margin: 0 auto;
@@ -159,6 +164,7 @@
 
     .left-section {
       flex: 1;
+      padding-right: 30px; /* optional: gives some breathing room from center image */
       max-width: 600px;
     }
 
@@ -196,9 +202,9 @@
       flex: 1;
       display: flex;
       justify-content: center;
-      align-items: flex-end;
+      align-items: center;
       height: 100%;
-      overflow: hidden;
+      transform: translateX(60px); /* subtle right shift */
     }
 
     .profile-image {
