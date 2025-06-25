@@ -85,16 +85,19 @@
 
     /* Navbar */
     .navbar {
+      position: sticky;
+      top: 0;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 24px 50px;
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      padding: 20px 50px;
-      background-color: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       z-index: 1000;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       opacity: 0;
       animation: navbarFade 1s ease-out 3.5s forwards;
+      font-family: 'The Seasons', serif;
     }
 
     .logo {
@@ -106,37 +109,36 @@
 
     .nav-links {
       display: flex;
-      gap: 30px;
+      gap: 35px;
       list-style: none;
       margin-right: 20px;
     }
 
     .nav-links a {
-      font-family: 'The Seasons', serif;
-      font-size: 11px;
+      font-size: 13px;
       color: #333;
       text-decoration: none;
       text-transform: uppercase;
       letter-spacing: 1px;
       transition: color 0.3s ease;
+      font-family: 'The Seasons', serif;
     }
 
     .nav-links a:hover {
-      color: #648767;
+      color: #BA3F1D;
     }
 
     .contact-btn {
       background-color: #BA3F1D;
       color: white;
-      padding: 8px 24px;
+      padding: 10px 24px;
       border-radius: 10px;
       text-decoration: none;
       font-family: 'The Seasons', serif;
-      font-size: 11px;
+      font-size: 13px;
       text-transform: uppercase;
       letter-spacing: 1px;
       transition: background-color 0.3s ease, transform 0.2s ease;
-      margin-left: 20px;
     }
 
     .contact-btn:hover {
