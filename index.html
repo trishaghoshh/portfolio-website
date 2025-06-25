@@ -89,7 +89,7 @@
       top: 0;
       background-color: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
-      height: 80px; /* Lock height */
+      height: 120px; /* Lock height */
       padding: 0 50px; /* Horizontal padding only */
       display: flex;
       justify-content: flex-end; /* Right-align items */
@@ -110,16 +110,16 @@
 
     .nav-links {
       display: flex;
-      gap: 20px; /* Previously 40px — reduce to tighten layout */
+      gap: 16px; /* closer, evenly spaced */
       list-style: none;
-      margin-right: 20px;
+      margin-right: 0; /* remove unnecessary right margin */
+      align-items: center;
     }
 
     .nav-links a {
-      font-family: 'The Seasons', serif; /* Use The Seasons font */
-      font-size: 15px;                   /* Slightly smaller font */
-      letter-spacing: 0.8px;             /* Closer spacing */
-      margin-left: 20px;                 /* More breathing room */
+      font-family: 'The Seasons', serif;
+      font-size: 15px;
+      letter-spacing: 0.6px;
       color: #333;
       text-decoration: none;
       text-transform: uppercase;
@@ -130,18 +130,24 @@
       color: #BA3F1D;
     }
 
+    .navbar-content {
+      display: flex;
+      align-items: center; /* Ensures vertical alignment */
+      margin-left: auto;   /* Pushes entire group to the right */
+    }
+
     .contact-btn {
       background-color: #BA3F1D;
       color: white;
-      padding: 14px 20px;              /* taller height, narrower width */
-      border-radius: 30px;             /* more pill-shaped */
+      padding: 12px 18px; /* shorter width, taller shape */
+      border-radius: 30px;
       text-decoration: none;
-      margin-left: 30px; /* add space between last nav link and button */
       font-family: 'The Seasons', serif;
       font-size: 14px;
       text-transform: uppercase;
       letter-spacing: 1px;
       transition: background-color 0.3s ease, transform 0.2s ease;
+      margin-left: 16px; /* space between Resume and Contact */
     }
 
     .contact-btn:hover {
@@ -329,14 +335,16 @@
 <body class="preload">
   <!-- Navbar -->
   <nav class="navbar">
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#notes">Notes</a></li>
-      <li><a href="#resume">Resume</a></li>
-    </ul>
-    <a href="#contact" class="contact-btn">Contact</a>
+    <div class="navbar-content">
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#notes">Notes</a></li>
+        <li><a href="#resume">Resume</a></li>
+      </ul>
+      <a href="#contact" class="contact-btn">Contact</a>
+    </div>
   </nav>
 
   <!-- Main Content -->
