@@ -110,17 +110,18 @@
 
     .nav-links {
       display: flex;
-      gap: 40px;
+      gap: 30px; /* Previously 40px — reduce to tighten layout */
       list-style: none;
     }
 
     .nav-links a {
-      font-family: 'The Seasons', serif;
-      font-size: 16px;
+      font-family: 'The Seasons', serif; /* Use The Seasons font */
+      font-size: 15px;                   /* Slightly smaller font */
+      letter-spacing: 0.8px;             /* Closer spacing */
+      margin-left: 20px;                 /* More breathing room */
       color: #333;
       text-decoration: none;
       text-transform: uppercase;
-      letter-spacing: 1px;
       transition: color 0.3s ease;
     }
 
@@ -131,8 +132,8 @@
     .contact-btn {
       background-color: #BA3F1D;
       color: white;
-      padding: 16px 36px; /* taller and wider */
-      border-radius: 999px; /* pill shape */
+      padding: 14px 20px;              /* taller height, narrower width */
+      border-radius: 30px;             /* more pill-shaped */
       text-decoration: none;
       font-family: 'The Seasons', serif;
       font-size: 14px;
